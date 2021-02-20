@@ -28,8 +28,8 @@ export default function MultilineTextFields(props) {
   const [promo, setPromo] = React.useState(0);
   const [country, setCountry] = React.useState(0);
   const [city, setCity] = React.useState("");
-  const [arrivalDate, setArrivalDate] = React.useState("2019-01-01");
-  const [departureDate, setDepartureDate] = React.useState("2021-02-01");
+  const [arrivalDate, setArrivalDate] = React.useState("2021-01-01");
+  const [departureDate, setDepartureDate] = React.useState("2021-08-01");
   const [status, setStatus] = React.useState(0);
   const [dialog, setDialog] = React.useState(false);
 

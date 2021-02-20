@@ -49,8 +49,8 @@ export default function BasicTable(props) {
 
   const [country, setCountry] = React.useState(0);
   const [city, setCity] = React.useState("");
-  const [arrivalDate, setArrivalDate] = React.useState("2019-01-01");
-  const [departureDate, setDepartureDate] = React.useState("2021-02-01");
+  const [arrivalDate, setArrivalDate] = React.useState("2021-01-01");
+  const [departureDate, setDepartureDate] = React.useState("2021-08-01");
   const [dialog, setDialog] = React.useState(false);
   const [selectedRow, setSelectedRow] = React.useState();
 
@@ -113,10 +113,10 @@ export default function BasicTable(props) {
         </Table>
       </TableContainer>
       <Dialog open={dialog} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Créer une mobilité</DialogTitle>
+        <DialogTitle id="form-dialog-title">Modifier votre mobilité</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Pour créer une mobilité, merci de remplir les champs ci-dessous
+            Pour modifier votre mobilité, merci de remplir les champs ci-dessous
         </DialogContentText>
           <form className={classes.dialogItems}>
             <div>

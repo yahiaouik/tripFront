@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import { selectUser, logOut } from '../../app/userSlice';
-import history from '../../history';
 
 export default function Header() {
   const classes = useStyles();

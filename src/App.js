@@ -5,6 +5,7 @@ import AdminPage from './pages/adminPage';
 import ConnexionPage from './pages/connexionPage';
 import UserPage from './pages/userPage';
 import history from './history';
+import SnackbarError from './components/error/snackbar';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path='/User' component={UserPage} />
           </Switch>
         </div>
+        <SnackbarError/>
       </Router>
   );
 }

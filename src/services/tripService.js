@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const URL = "https://tripservertse.herokuapp.com"
 
+
 // recupere tous les voyages de tous les utilisateurs
 export async function getAllTrips(token) {
 	return await axios ({

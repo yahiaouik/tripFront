@@ -3,6 +3,7 @@ import { login } from '../services/userService';
 import { getAllTrips, getUserTrips } from '../services/tripService';
 import history from '../history';
 import { setTrips } from './tripSlice';
+import { setError } from './errorSlice';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -16,7 +17,7 @@ export const userSlice = createSlice({
     token: ""
   },
   reducers: {
-    initUser: (state,action) => {
+    initUser: (state, action) => {
       state.id = "";
       state.firstname = "";
       state.lastname = "";
@@ -38,28 +39,35 @@ export const userSlice = createSlice({
 });
 
 export const logUser = (log, password) => async (dispatch, getState) => {
-  const result = await login(log, password);
-  dispatch(setUser(result.data));
   try {
+    const result = await login(log, password);
+    dispatch(setError({ open: true, message: "L'utilisateur s'est connecté avec succès ", severity: "success" }));
+    dispatch(setUser(result.data));
+
     if (result.data.user.promo === "ADMIN") {
       const data = await getAllTrips(getState().user.token);
-      if(!data.data[0]) console.log("pas de voyage créé");
+      if (!data.data[0]) {
+        dispatch(setError({ open: true, message: "  Pas de voyage créé ", severity: "info" }));
+      }
       dispatch(setTrips(data.data));
       history.push('/Admin');
     } else {
       const data = await getUserTrips(result.data.user.userId, getState().user.token);
-      if(!data.data[0]) console.log("pas de voyage créé pour cet utilisateur");
+      if (!data.data[0]) {
+        dispatch(setError({ open: true, message: "Pas de voyage créé pour cet utilisateur", severity: "info" }));
+      }
       dispatch(setTrips(data.data));
       history.push('/User');
     }
   } catch (e) {
-    // mettre ici un error handler
+    dispatch(setError({ open: true, message: e.response.data, severity: "error" }));
   }
 };
 
-export const logOut = async(dispatch) => {
+export const logOut = async (dispatch) => {
   dispatch(initUser());
   history.push('/');
+  dispatch(setError({ open: true, message: "L'utilisateur s'est déconnecté avec succès ", severity: "success" }));
 };
 
 export const { setUser, initUser } = userSlice.actions;

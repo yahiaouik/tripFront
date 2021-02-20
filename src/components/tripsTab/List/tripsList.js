@@ -58,7 +58,7 @@ export default function BasicTable(props) {
     <div>
       <TableContainer className={classes.tableContainer} component={Paper}>
         <Table className={classes.table} stickyHeader aria-label="simple table">
-          <TableHead>
+          <TableHead >
             <TableRow>
               {props.role === "ADMIN" &&
                 <TableCell align="center">Etudiant</TableCell>}
@@ -102,6 +102,11 @@ export default function BasicTable(props) {
                   props.role === "ADMIN" &&
                   <TableCell align="center"><Button onClick={e => dispatch(validateTrip(row.tripId, row.userId, row.country, row.countryId, row.city, row.arrivalDate, row.departureDate))}><CheckIcon /></Button></TableCell>
                 }
+                {
+                  row.status !== "En attente de validation"  &&
+                  <TableCell align="center"/>
+                }
+
               </TableRow>
             ))}
           </TableBody>

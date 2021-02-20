@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Partie du store qui gère les messages d'erreurs
+
 export const errorSlice = createSlice({
     name: 'error',
     initialState: {

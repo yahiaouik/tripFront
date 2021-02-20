@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getAllTrips, getUserTrips, createUserTrip, updateUserTrip, deleteUserTrip } from '../services/tripService';
 import { setError } from './errorSlice';
 
+// Partie du store qui gère les données des voyages
 
 export const tripSlice = createSlice({
   name: 'trips',

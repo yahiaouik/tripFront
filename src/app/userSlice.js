@@ -5,6 +5,8 @@ import history from '../history';
 import { setTrips } from './tripSlice';
 import { setError } from './errorSlice';
 
+// Partie du store qui gère les données des utilisateurs
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: {

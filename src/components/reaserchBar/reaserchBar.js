@@ -130,7 +130,7 @@ export default function MultilineTextFields(props) {
           Valider
         </Button>
         {props.role === "USER" &&
-          <Button className={classes.button} variant="contained" color="primary" onClick={e => { setDialog(true); console.log(dialog) }}>
+          <Button className={classes.button} variant="contained" color="primary" onClick={e => { setDialog(true);}}>
             Créer un voyage
         </Button>
         }

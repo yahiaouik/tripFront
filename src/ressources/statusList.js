@@ -1,0 +1,1 @@
+export const statusList = ["Tous", "En attente de validation", "Validé", "En cours", "Terminé"];

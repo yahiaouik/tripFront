@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import tripsTabReducer from '../components/tripsTab/tripsTabSlice';
+import tripsReducer from './tripSlice';
+import userReducer from './userSlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    tripsTab: tripsTabReducer,
+    trips: tripsReducer,
+    user: userReducer
+
   },
 });
